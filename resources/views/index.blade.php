@@ -1,5 +1,5 @@
 @extends('app.base')
-@section('title', 'Argo Second Title')
+@section('title')
 
 @section('content')
 <h2>This is the new content</h2>

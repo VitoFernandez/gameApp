@@ -31,5 +31,6 @@
               
             </table>
             <a class="btn btn-primary" href="{{ url ('game/') }}">Back</a>
+            <a class="btn btn-primary" href="{{url('game/' . $game->id . '/edit')}}">Edit</a>
           </div> 
 @endsection

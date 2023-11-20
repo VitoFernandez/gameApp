@@ -38,22 +38,30 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        //1º generar el objeto
+         //1º generar el objeto para guardar
+        
         $game = new Game($request->all());
         
-        //2º 'intentar' guardar
-        try {
-            $result = $game->save();
-            //3º si lo he guardado volver a 'añgun sitio': index, create
-            $afterInsert = session('afterInsert', 'show games');
-            $target = 'game';
-            if ($afterInsert != 'show games') {
-                $target = 'game/create';
-            }
-            return redirect($target)->with(['message'=>'The game has been saved']);
-        } catch (\Exception $e) {
-            //4º si no lo he  guardado volver a la pagina  anterior con sus datos para volver a rellenar el formulario
-            return back()->withInput()->withErrors(['message' => 'The game has not been saved']);
+         
+        try{
+            
+            //2º intentar guardar el objeto
+             $result = $game->save();
+            
+             //3º si se guarda volver algun sitio : index , create
+             
+             
+            $checked = session('afterInsert', 'showGames');
+            $target='game';
+    
+        if($checked != 'showGames'){
+            $target = $target.'/create';
+           
+        }
+             return redirect($target)->with(['message'=> 'The game has been seaved']);//no hace falta poner url('game/create') ya que lo hace redirect
+        }catch(\Exception $e){
+             //4º Si no lo he guardado volver para tras con los datoas rellenos
+            return back() -> withInput()->withErrors(['message'=> 'The game has not been seaved']);//volvemos para atras con los datos que me llegan 
         }
     }
 
@@ -91,7 +99,7 @@ class GameController extends Controller
     public function update(Request $request, Game $game)
     {
         try{
-            $result = $movie->update($request->all());
+            $result = $game->update($request->all());
             return redirect('game')->with(['message'=>'The game has been updated']);
         } catch (\Exception $e) {
             return back()->withInput()->withErrors(['message' => 'The game has not been updated']);

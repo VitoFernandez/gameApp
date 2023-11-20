@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
-
+use App\Http\Controllers\SettingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +15,9 @@ use App\Http\Controllers\GameController;
 */
 
 Route::get('/', function () {
-    return view('game.index');
+    return view('app.base');
 });
 
 Route::resource('game', GameController::class);
+Route::get('setting',[SettingController::class, 'index'])-> name('setting.index');
+Route::put('setting',[SettingController::class, 'update'])-> name('setting.update');
