@@ -12,6 +12,10 @@
                   <th scope="col">Director</th>
                   <th scope="col">Developer</th>
                   <th scope="col">Relaise</th>
+                  <th scope="col">Show</th>
+                  <th scope="col">Edit</th>
+                  <th scope="col">Delete</th>
+                  
                 </tr>
               </thead>
               <tbody>
