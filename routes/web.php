@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\ImgController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,5 +20,6 @@ Route::get('/', function () {
 });
 
 Route::resource('game', GameController::class);
+Route::get('img',[ImgController::class, 'index'])-> name('img.index');
 Route::get('setting',[SettingController::class, 'index'])-> name('setting.index');
 Route::put('setting',[SettingController::class, 'update'])-> name('setting.update');

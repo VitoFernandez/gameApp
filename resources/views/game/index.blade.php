@@ -2,7 +2,10 @@
 @section('title')
 
 @section ('content')
-
+          <a class="btn btn-primary" href="{{ url ('game/') }}">Back</a>
+          <a class="btn btn-success" href="{{ url ('game/create') }}">Create Game</a>
+          <br>
+          <br>
           <div class="table-responsive small">
             <table class="table table-striped">
               <thead>

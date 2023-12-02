@@ -36,11 +36,11 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('img')}}">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fa-solid fa-gamepad fa-2xl"></i>
+                    <i class="fa-solid fa-gamepad fa-2xl" href="{{url('img')}}" ></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">GamesApp</div>
+                <div class="sidebar-brand-text mx-3" href="{{url('img')}}">GamesApp</div>
             </a>
 
             <!-- Divider -->
@@ -204,6 +204,8 @@
                 </nav>
                 <!-- End of Topbar -->
           <!-- content -->
+          
+          
           <div class="card-body">
       @if($errors->any())
          <div class="alert alert-primary alert-dismissible fade show" role="alert">
